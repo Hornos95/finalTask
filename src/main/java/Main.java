@@ -41,7 +41,7 @@ public class Main {
         MailService<String> mailService = new MailService<>();
 
 // Обработка списка писем почтовым сервисом
-        messages.stream().forEachOrdered(mailService::printMessage);
+        messages.stream().forEachOrdered(mailService);
 
 // Получение "почтового ящика",
 //   где по получателю можно получить список сообщений, которые были ему отправлены
@@ -73,7 +73,7 @@ public class Main {
         MailService<Integer> salaryService = new MailService<>();
 
 // Обработка списка зарплат почтовым сервисом
-        Arrays.asList(salary1, salary2, salary3).forEach(salaryService::printSalary);
+        Arrays.asList(salary1, salary2, salary3).forEach(salaryService);
 
 //Проверка почтового ящика
         Map<String, List<Integer>> salaries = salaryService.getMailBox();

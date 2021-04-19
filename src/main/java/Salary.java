@@ -1,6 +1,6 @@
 
 
-public class Salary {
+public class Salary implements MailInterface<Integer> {
     private String from;
     private String to;
     private int salary;
@@ -14,27 +14,23 @@ public class Salary {
         this.salary = salary;
     }
 
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
     public int getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+
+    @Override
+    public String getTo() {
+        return to;
+    }
+
+    @Override
+    public String getFrom() {
+        return from;
+    }
+
+    @Override
+    public Integer getContent() {
+        return getSalary();
     }
 }

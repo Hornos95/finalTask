@@ -1,34 +1,20 @@
 
 
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 
-public class MailService <T> {
-    private Map<String, List<T>> mailBox;
+public class MailService <T> implements Consumer<MailInterface<T>> {
 
-    public String printMessage(MailMessage mailMessage){
-        return mailMessage.toString();
-    }
-
-    public String printSalary(Salary salary){
-        return salary.toString();
-    }
+    private Map<String, List<T>> mailBox = new HashMap<String, List<T>>();
 
     public Map<String, List<T>> getMailBox() {
         return mailBox;
     }
 
-    public void setMailBox(Map<String, List<T>> mailBox) {
-        this.mailBox = mailBox;
-    }
-
-    public MailService() {
-    }
-
-    public MailService(Map<String, List<T>> mailBox) {
-        this.mailBox = mailBox;
+    @Override
+    public void accept(MailInterface<T> tMailInterface) {
+        mailBox.put(tMailInterface.getTo(), Arrays.asList(tMailInterface.getContent()));
     }
 }

@@ -1,10 +1,10 @@
 
-public class MailMessage {
+public class MailMessage implements MailInterface<String>{
     private String from;
     private String to;
     private String content;
 
-    public MailMessage() {
+    public MailMessage()  {
     }
 
     public MailMessage(String from, String to, String content) {
@@ -13,27 +13,19 @@ public class MailMessage {
         this.content = content;
     }
 
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
+    @Override
     public String getTo() {
         return to;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    @Override
+    public String getFrom() {
+        return from;
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+
 }
